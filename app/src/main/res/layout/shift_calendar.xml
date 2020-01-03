@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:textAlignment="center"
+        android:id="@+id/shift_calendar_header"
+        android:textSize="25sp"
+        android:text="Your Schedule for this month"
+        android:textColor="@android:color/black"/>
+
+
+    <com.applandeo.materialcalendarview.CalendarView
+        android:layout_below="@+id/shift_calendar_header"
+        android:id="@+id/shifts_calendar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:headerColor="@color/MyDefaultWhite"
+        app:forwardButtonSrc="@drawable/ic_keyboard_arrow_right_black_24dp"
+        app:previousButtonSrc="@drawable/ic_keyboard_arrow_left_black_24dp"
+        app:headerLabelColor="@android:color/black"
+
+        />
+
+</RelativeLayout>
+</ScrollView>

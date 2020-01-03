@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#01579B</color>
+    <color name="colorPrimaryDark">#1A237E</color>
+    <color name="colorAccent">#006064</color>
+    <color name="addButton">#004D40</color>
+    <color name="clearAll">#BF360C</color>
+    <color name="TextWhite">#FFFFFF</color>
+    <color name="MyDefaultWhite">#FAFAFA</color>
+    <color name="YellowEditShift">#FFC107</color>
+</resources>

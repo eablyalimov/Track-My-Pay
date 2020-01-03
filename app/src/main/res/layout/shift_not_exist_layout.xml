@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/shift_not_exist_text"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:layout_marginTop="50dp"
+        android:id="@+id/no_shift_text"
+        android:textColor="@android:color/black"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_clear_black_24dp"
+        android:layout_below="@+id/no_shift_text"
+        android:id="@+id/cross_img"
+        android:padding="0dp"/>
+
+    <Button
+        android:id="@+id/add_shift_from_empty_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cross_img"
+        android:textSize="25sp"
+        android:gravity="center"
+        android:background="@color/addButton"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:textColor="@color/TextWhite"
+        android:text="@string/add_shift_nav_bar"/>
+
+
+</RelativeLayout>
+
+</ScrollView>

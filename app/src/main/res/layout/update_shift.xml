@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent">
+
+<GridLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:id="@+id/add_shift_fragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="30dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_shift_shift_date"
+        android:textSize="25sp"
+        android:layout_row="0"
+        android:layout_column="0"
+        android:id="@+id/update_shift_date_label"
+        android:textColor="@android:color/black"
+        android:paddingBottom="4dp"
+        android:paddingTop="4dp"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/update_shift_date"
+        android:inputType="date"
+        android:layout_row="0"
+        android:focusable="false"
+        android:hint="@string/click_me_hint"
+        android:layout_column="1"
+        android:textSize="25sp"
+        android:layout_gravity="end"
+        android:paddingBottom="4dp"
+        android:paddingTop="4dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/start_time_label"
+        android:layout_row="1"
+        android:layout_column="0"
+        android:textSize="25sp"
+        android:id="@+id/update_start_time_label"
+        android:textColor="@android:color/black"
+        android:paddingBottom="4dp"
+        android:paddingTop="4dp"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/update_start_time"
+        android:inputType="date"
+        android:layout_row="1"
+        android:hint="@string/click_me_hint"
+        android:layout_column="1"
+        android:textSize="25sp"
+        android:layout_gravity="end"
+        android:focusable="false"
+        android:paddingBottom="4dp"
+        android:paddingTop="4dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/end_time_label"
+        android:textSize="25sp"
+        android:layout_row="2"
+        android:layout_column="0"
+        android:id="@+id/update_end_time_label"
+        android:textColor="@android:color/black"
+        android:paddingBottom="4dp"
+        android:paddingTop="4dp"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/update_end_time"
+        android:inputType="date"
+        android:textSize="25sp"
+        android:hint="@string/click_me_hint"
+        android:layout_row="2"
+        android:layout_column="1"
+        android:layout_gravity="end"
+        android:focusable="false"
+        android:paddingBottom="4dp"
+        android:paddingTop="4dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/comments_new_shift"
+        android:layout_row="3"
+        android:layout_column="0"
+        android:textSize="25sp"
+        android:layout_marginTop="12dp"
+        android:layout_columnSpan="2"
+        android:id="@+id/update_comments_label"
+        android:textColor="@android:color/black"/>
+
+    <EditText
+        android:id="@+id/update_comments"
+        android:background="@drawable/edit_text_border"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_row="4"
+        android:layout_column="0"
+        android:textSize="15sp"
+        android:layout_marginTop="12dp"
+        android:minLines="8"
+        android:layout_columnSpan="2"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine" />
+
+    <Button
+        android:text="Save"
+        android:id="@+id/update_save_shift"
+        android:layout_marginTop="25dp"
+        android:layout_row="5"
+        android:layout_width="130dp"
+        android:background="@color/addButton"
+        android:textColor="@color/TextWhite"
+
+
+        />
+
+    <Button
+        android:text="Clear"
+        android:layout_row="5"
+        android:id="@+id/update_clearInput"
+        android:layout_marginTop="25dp"
+        android:layout_gravity="end"
+        android:layout_column="1"
+        android:layout_width="130dp"
+        android:background="@color/clearAll"
+        android:textColor="@color/TextWhite"
+
+        />
+
+
+</GridLayout>
+
+
+</ScrollView>
