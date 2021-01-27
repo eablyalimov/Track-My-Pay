@@ -1,41 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-
-    <TextView
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="10dp"
-        android:textAlignment="center"
-        android:id="@+id/shift_calendar_header"
-        android:textSize="25sp"
-        android:text="Your Schedule for this month"
-        android:textColor="@android:color/black"/>
+        android:layout_height="wrap_content">
 
 
-    <com.applandeo.materialcalendarview.CalendarView
-        android:layout_below="@+id/shift_calendar_header"
-        android:id="@+id/shifts_calendar"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:headerColor="@color/MyDefaultWhite"
-        app:forwardButtonSrc="@drawable/ic_keyboard_arrow_right_black_24dp"
-        app:previousButtonSrc="@drawable/ic_keyboard_arrow_left_black_24dp"
-        app:headerLabelColor="@android:color/black"
+        <TextView
+            android:id="@+id/shift_calendar_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="3"
+            android:layout_marginLeft="120dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="20dp"
+            android:text="Your Shift Calendar"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
 
-        />
+        <Button
+            android:id="@+id/go_to_current_month"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_gravity="end"
+            android:paddingTop="15dp"
+            android:layout_marginLeft="50dp"
+            android:layout_toRightOf="@id/shift_calendar_header"
+            android:background="@android:color/transparent"
+            android:drawableEnd="@drawable/ic_calendar_icon"
+            />
 
-</RelativeLayout>
+
+        <com.example.trackmypay.customEscentricCalendar.CalendarCustomView
+            android:layout_below="@id/shift_calendar_header"
+            android:id="@+id/custom_calendar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></com.example.trackmypay.customEscentricCalendar.CalendarCustomView>
+
+    <FrameLayout
+
+            android:id="@+id/fragment_summary"
+            android:layout_below="@id/custom_calendar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </RelativeLayout>
+
 </ScrollView>

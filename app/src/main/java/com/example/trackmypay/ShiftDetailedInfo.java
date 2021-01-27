@@ -1,86 +1,64 @@
 package com.example.trackmypay;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
 
 public class ShiftDetailedInfo extends Fragment {
-    TextView dateText;
-    TextView startTime;
-    TextView endTime;
-    TextView comments;
-    TextView hoursWorked;
-    TextView grossPay;
-    ShiftManager shiftManager;
-    Button editShift;
-    Shift shiftToDisplay;
-    UpdateShift updateShift;
 
-
-
+    private ArrayList <Shift> shiftsToDisplay;
+    Button addAnotherShift;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View vw = inflater.inflate(R.layout.shift_detailed_info, container, false);
-        shiftManager = new ShiftManager(this.getActivity());
 
-        dateText = vw.findViewById(R.id.shift_date);
-        startTime = vw.findViewById(R.id.start_time);
-        endTime = vw.findViewById(R.id.end_time);
-        comments = vw.findViewById(R.id.comments);
-        hoursWorked = vw.findViewById(R.id.hours_worked);
-        grossPay = vw.findViewById(R.id.gross_pay);
-        editShift = vw.findViewById(R.id.edit_shift);
+        View vw = inflater.inflate(R.layout.list_view, container, false);
 
-        double hoursWorkedVal;
+        Bundle bundle = getArguments();
+        shiftsToDisplay = bundle.getParcelableArrayList("shift_to_display");
 
+        addAnotherShift = vw.findViewById(R.id.add_another_shift);
 
-
-        editShift.setOnClickListener(new View.OnClickListener() {
+        addAnotherShift.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                updateShift = new UpdateShift();
-                FragmentManager fragmentManager = getFragmentManager();
-                fragmentManager.beginTransaction().replace(R.id.fragment_layout, updateShift).addToBackStack(null).commit();
+                AddShiftFragment addShiftFragment = new AddShiftFragment();
+                Bundle bundle = new Bundle();
+                bundle.putLong("shift_date", shiftsToDisplay.get(0).getDate());
+                bundle.putBoolean("called_from_empty_date", true);
+
+                addShiftFragment.setArguments(bundle);
+                getFragmentManager().beginTransaction().setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, android.R.anim.slide_in_left, android.R.anim.slide_out_right).replace(R.id.fragment_layout, addShiftFragment).addToBackStack(null).commit();
+
+
             }
         });
 
-
-
-        hoursWorkedVal = ((shiftToDisplay.getEndTime() - shiftToDisplay.getStartTime()) / 3600000);
-
-        dateText.setText(ShiftValuesConverter.DateStringConvert(shiftToDisplay.getDate()));
-        startTime.setText(ShiftValuesConverter.StartTimeStringConvert(shiftToDisplay.getStartTime()));
-        endTime.setText(ShiftValuesConverter.EndTimeStringConvert(shiftToDisplay.getEndTime()));
-        comments.setText(shiftToDisplay.getComments());
-        hoursWorked.setText(hoursWorkedVal + getString(R.string.hours));
-        grossPay.setText(getString(R.string.dollar_sign) + hoursWorkedVal * 14.00);
+        ShiftsAdapter adapter = new ShiftsAdapter(this.getActivity(), R.layout.shift_detailed_info, shiftsToDisplay, getFragmentManager());
 
 
 
 
 
-
-
-
-
-
+        ListView listView = vw.findViewById(R.id.list_view_data);
+        listView.setAdapter(adapter);
 
 
         return vw;
 
     }
 
-    public void passShift(Shift paramShift)
-    {
-        shiftToDisplay = paramShift;
-    }
 }

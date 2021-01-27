@@ -1,76 +1,190 @@
 package com.example.trackmypay;
 
-import android.content.ContentValues;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-import com.applandeo.materialcalendarview.EventDay;
-import com.example.trackmypay.domain.DataBaseHelper;
+import java.io.Serializable;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
+public class Shift implements Parcelable, Serializable {
 
-public class Shift {
-
+    private int id;
     private long date;
     private long startTime;
     private long endTime;
+    private double hourlyRate;
+    private long paidBreakMin;
+    private long unpaidBreakMin;
+    private double bonus;
+    private double expenses;
     private String comments;
-    private EventDay calendarHandler;
+    private boolean isCommission;
+    private double salesMade;
+    private double target;
 
-    Shift(long date, long startTime, long endTime, String comments)
+
+    Shift(int id, long date, long startTime, long endTime, double hourlyRate, long paidBreakMin, long unpaidBreakMin, double bonus, double expenses, String comments, boolean isCommission, double salesMade, double target)
     {
+        this.id = id;
         this.date = date;
         this.startTime = startTime;
         this.endTime = endTime;
         this.comments = comments;
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(new Date(this.date));
-        this.calendarHandler = new EventDay(cal);
+        this.hourlyRate = hourlyRate;
+        this.paidBreakMin = paidBreakMin;
+        this.unpaidBreakMin = unpaidBreakMin;
+        this.bonus = bonus;
+        this.expenses = expenses;
+        this.isCommission = isCommission;
+        this.salesMade = salesMade;
+        this.target = target;
+
+
     }
 
+    protected Shift(Parcel in) {
+        id = in.readInt();
+        date = in.readLong();
+        startTime = in.readLong();
+        endTime = in.readLong();
+        hourlyRate = in.readDouble();
+        paidBreakMin = in.readLong();
+        unpaidBreakMin = in.readLong();
+        bonus = in.readDouble();
+        expenses = in.readDouble();
+        comments = in.readString();
+        isCommission = in.readByte() != 0;
+        salesMade = in.readDouble();
+        target = in.readDouble();
+    }
 
+    public static final Creator<Shift> CREATOR = new Creator<Shift>() {
+        @Override
+        public Shift createFromParcel(Parcel in) {
+            return new Shift(in);
+        }
 
+        @Override
+        public Shift[] newArray(int size) {
+            return new Shift[size];
+        }
+    };
 
-    Shift(long date, long startTime, long endTime)
+    public int getId()
     {
-        this(date, startTime, endTime, null);
+        return id;
     }
 
+    public long getStartTime() { return startTime; }
 
-
-
-    public long getStartTime() {
-
-
-        return startTime;
-    }
-
-    public void setStartTime(long startTime) {
-        this.startTime = startTime;
-    }
 
     public long getDate() {
         return date;
     }
 
-    public void setDate(long date) {
-        this.date = date;
-    }
 
     public long getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(long endTime) {
-        this.endTime = endTime;
-    }
 
     public String getComments() {
         return comments;
     }
 
-    public void setComments(String comments) {
-        this.comments = comments;
+    public long getPaidBreakMin() {
+        return paidBreakMin;
+    }
+
+    public long getUnpaidBreakMin() {
+        return unpaidBreakMin;
+    }
+
+    public double getHourlyRate() {
+        return hourlyRate;
+    }
+
+    public double getBonus() {
+        return bonus;
+    }
+
+    public double getExpenses() {
+        return expenses;
+    }
+
+    public double getSalesMade() {
+        return salesMade;
+    }
+
+    public double getTarget() {
+        return target;
+    }
+
+    public boolean isCommission() {
+        return isCommission;
+    }
+
+    public long calculateTimeWorked() {
+
+        long timeWorked = this.getEndTime() - this.getStartTime() - this.unpaidBreakMin - this.paidBreakMin;
+        return timeWorked;
+    }
+
+    public double calculateGrossPay()
+    {
+        long paidTimeMilliseconds = this.getEndTime() - this.getStartTime() - this.unpaidBreakMin;
+
+        double grossPay = (paidTimeMilliseconds / 3600000.00) * this.getHourlyRate() + this.bonus - this.expenses;
+        return grossPay;
+
+    }
+
+    public double calculateCommission(boolean deficit)
+    {
+
+
+
+        double commissionTot = 0;
+
+        if (deficit)
+        {
+            if (getSalesMade() < getTarget())
+            {
+                commissionTot = getSalesMade() - getTarget();
+            }
+            else if (getSalesMade() > getTarget())
+            {
+                commissionTot = (getSalesMade() - getTarget()) * 0.1;
+            }
+        }
+
+        else if (!deficit)
+        {
+            commissionTot = getSalesMade() * 0.1;
+        }
+
+        return commissionTot;
+
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeLong(date);
+        dest.writeLong(startTime);
+        dest.writeLong(endTime);
+        dest.writeDouble(hourlyRate);
+        dest.writeLong(paidBreakMin);
+        dest.writeLong(unpaidBreakMin);
+        dest.writeDouble(bonus);
+        dest.writeDouble(expenses);
+        dest.writeString(comments);
+        dest.writeByte((byte) (isCommission ? 1 : 0));
+        dest.writeDouble(salesMade);
+        dest.writeDouble(target);
     }
 }

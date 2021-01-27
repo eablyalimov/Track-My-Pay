@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <androidx.preference.PreferenceCategory
+        android:title="General Settings">
+
+        <androidx.preference.EditTextPreference
+            android:defaultValue="User"
+            android:key="user_name"
+            android:title="Your Name"/>
+        <androidx.preference.EditTextPreference
+            android:defaultValue="14"
+            android:title="Hourly Rate"
+            android:key="hourly_rate"
+            android:summary="You can set your hourly rate here. It will be a default hourly rate when adding a new shift"
+            />
+
+        <androidx.preference.ListPreference
+            android:key="currency"
+            android:defaultValue="Dollars"
+            android:title="Currency"
+            android:entryValues="@array/currencyValues"
+            android:entries="@array/currency"
+            />
+
+        <androidx.preference.ListPreference
+            android:key="first_day_of_week"
+            android:title="First Day of Week"
+            android:defaultValue="1"
+            android:entries="@array/firstDayOfWeek"
+            android:entryValues="@array/firstDayOfWeekValues"
+            />
+
+        <androidx.preference.SwitchPreference
+            android:key="is_commission_deficit_carried_over"
+            android:title="Commission Deficit"
+            android:defaultValue="false"
+            android:enabled="false"
+            />
+
+
+    </androidx.preference.PreferenceCategory>
+
+
+    <androidx.preference.PreferenceCategory
+        android:title="Break Settings">
+
+        <androidx.preference.EditTextPreference
+            android:defaultValue="30"
+            android:key="unpaid_break_duration"
+            android:title="Unpaid Break Duration (minutes)"
+            android:summary="You can set the length of unpaid break here that will be used by default when you add a new shift"
+            />
+
+        <androidx.preference.EditTextPreference
+            android:defaultValue="15"
+            android:key="paid_break_duration"
+            android:title="Paid Break Duration (minutes)"
+            android:summary="You can set the length of paid break here that will be used by default when you add a new shift"
+            />
+
+
+
+
+    </androidx.preference.PreferenceCategory>
+
+
+
+    <androidx.preference.PreferenceCategory
+        android:title="Show/Hide Shift Options">
+
+
+        <androidx.preference.SwitchPreference
+            android:defaultValue="true"
+            android:key="hourly_rate_switch"
+            android:title="Hourly Rate"
+            android:summary="Hides Hourly Rate field. In this case you will not be to set a specific rate for a specific shift"/>
+
+        <androidx.preference.SwitchPreference
+            android:defaultValue="true"
+            android:key="paid_break_switch"
+            android:title="Paid Break"/>
+        <androidx.preference.SwitchPreference
+            android:defaultValue="true"
+            android:key="unpaid_break_switch"
+            android:title="Unpaid Break"/>
+        <androidx.preference.SwitchPreference
+            android:defaultValue="true"
+            android:key="bonus_switch"
+            android:title="Bonus"/>
+        <androidx.preference.SwitchPreference
+            android:defaultValue="true"
+            android:key="expenses_switch"
+            android:title="Expenses"/>
+
+        <androidx.preference.SwitchPreference
+            android:defaultValue="false"
+            android:key="commission"
+            android:title="Commission"/>
+
+    </androidx.preference.PreferenceCategory>
+
+
+
+
+
+
+</androidx.preference.PreferenceScreen>
+

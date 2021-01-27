@@ -4,8 +4,12 @@
     <color name="colorPrimaryDark">#1A237E</color>
     <color name="colorAccent">#006064</color>
     <color name="addButton">#004D40</color>
-    <color name="clearAll">#BF360C</color>
+    <color name="addButtonColor2">#009278</color>
+    <color name="addButtonColor3">#01E6AF</color>
+    <color name="clearAll">#a12525</color>
     <color name="TextWhite">#FFFFFF</color>
     <color name="MyDefaultWhite">#FAFAFA</color>
-    <color name="YellowEditShift">#FFC107</color>
+    <color name="YellowEditShift">#DDAA09</color>
+
+    <color name="colorBlack">#000000</color>
 </resources>

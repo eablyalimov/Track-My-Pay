@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:background="@color/MyDefaultWhite"
+        android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/previous_month"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:padding="2dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/ic_keyboard_arrow_left_black_24dp"
+            android:layout_weight="1"/>
+        <TextView
+            android:id="@+id/display_current_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="16dp"
+            android:textColor="@color/colorBlack"
+            android:text="03/05/2020"
+            android:layout_marginTop="4dp"
+            android:layout_weight="3"/>
+        <ImageView
+            android:id="@+id/next_month"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:layout_gravity="left"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/ic_keyboard_arrow_right_black_24dp"
+            android:layout_weight="1"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/MyDefaultWhite"
+        android:paddingBottom="4dp"
+        android:paddingTop="4dp"
+        android:orientation="horizontal">
+        <GridView
+            android:id="@+id/days_of_week_grid"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:numColumns="7"/>
+
+    </LinearLayout>
+
+    <com.example.trackmypay.customEscentricCalendar.GridViewScrollable
+        android:id="@+id/calendar_grid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:numColumns="7"
+        android:stretchMode="columnWidth"
+
+
+        />
+</LinearLayout>

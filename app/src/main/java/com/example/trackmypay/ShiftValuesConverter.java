@@ -3,9 +3,11 @@ package com.example.trackmypay;
 import android.util.Log;
 
 
+import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 public abstract class ShiftValuesConverter {
 
@@ -30,6 +32,14 @@ public abstract class ShiftValuesConverter {
     {
         SimpleDateFormat dateFormat = new SimpleDateFormat("hh:mma");
         return dateFormat.format(new Date(endTime));
+    }
+
+    public static String timeWorkedConvert(long time)
+    {
+
+
+        String formatted = String.format("%02d:%02d", TimeUnit.MILLISECONDS.toHours(time), TimeUnit.MILLISECONDS.toMinutes(time) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(time)));
+        return formatted + " hours";
     }
 
 
@@ -73,7 +83,7 @@ public abstract class ShiftValuesConverter {
             Log.d("EXCEPTION:", e.getMessage());
         }
 
-        Log.d("TEST VALUE", String.valueOf(startTimeVar.getTime()));
+
 
         return startTimeVar.getTime();
     }

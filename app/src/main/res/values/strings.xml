@@ -2,11 +2,9 @@
     <string name="app_name">Track My Pay</string>
     <string name="add_shift_nav_bar">Add Shift</string>
     <string name="settings_nav_bar">Settings</string>
-    <string name="nav_header_title">Track My Pay</string>
     <string name="navigation_drawer_open">Open Navigation Drawer</string>
     <string name="navigation_drawer_close">Close Navigation Drawer</string>
     <string name="add_shift_shift_date">Shift Date:</string>
-    <string name="start_time">Start Time:</string>
     <string name="start_time_label">Start Time:</string>
     <string name="end_time_label">End Time:</string>
     <string name="send_feedback_nav_bar">Send Feedback</string>
@@ -14,9 +12,24 @@
     <string name="hours_worked_label">Hours:</string>
     <string name="gross_pay_label">Gross Pay:</string>
     <string name="click_me_hint">Click Me</string>
-    <string name="hours"> hours</string>
-    <string name="dollar_sign">$</string>
-    <string name="shift_not_exist_text">Looks like there\'s nothing...</string>
     <string name="edit_shift_button">Edit</string>
     <string name="delete_shift_button">Delete</string>
+    <string name="hi_user_msg">Hi, %1$s ;)</string>
+    <string name="paid_break_duration">Paid Break (min):</string>
+    <string name="unpaid_break_duration">Unpaid Break (min):</string>
+    <string name="hourly_rate_label">Hourly Rate:</string>
+    <string name="bonus_amount">Bonus:</string>
+    <string name="expenses_amount">Expenses:</string>
+    <string name="get_shift_stats_button">Get Stats</string>
+    <string name="worked_summary_earned">%1$s%2$s earned.</string>
+    <string name="commission_earned">%1$s earned in commission.</string>
+    <string name="commission_earned_lbl">Commission:</string>
+    <string name="update_button">Update</string>
+    <string name="clear_button">Clear</string>
+    <string name="add_button">Add</string>
+    <string name="target_label">Target:</string>
+    <string name="sales_made_label">Sales Made:</string>
+    <string name="commission_label">Commission:</string>
+    <string name="save_report_btn">Save Report</string>
+
 </resources>

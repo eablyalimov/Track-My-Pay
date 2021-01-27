@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Track My Pay</string>
+    <string name="add_shift_nav_bar">Новая Смена</string>
+    <string name="settings_nav_bar">Настройки</string>
+    <string name="navigation_drawer_open">Open Navigation Drawer</string>
+    <string name="navigation_drawer_close">Close Navigation Drawer</string>
+    <string name="add_shift_shift_date">Дата:</string>
+    <string name="start_time_label">Начало Смены:</string>
+    <string name="end_time_label">Конец Смены:</string>
+    <string name="send_feedback_nav_bar">Обратная Связь</string>
+    <string name="comments_new_shift">Комментарии:</string>
+    <string name="hours_worked_label">Часов отработано:</string>
+    <string name="gross_pay_label">Зарплата:</string>
+    <string name="click_me_hint">Click Me</string>
+    <string name="edit_shift_button">Редактировать</string>
+    <string name="delete_shift_button">Удалить</string>
+    <string name="hi_user_msg">Привет, %1$s ;)</string>
+    <string name="paid_break_duration">Оплаченный перерыв (мин):</string>
+    <string name="unpaid_break_duration">Неоплаченный перерыв (мин):</string>
+    <string name="hourly_rate_label">Зарплата в час:</string>
+    <string name="bonus_amount">Бонус:</string>
+    <string name="expenses_amount">Затраты:</string>
+    <string name="get_shift_stats_button">Статистика</string>
+    <string name="worked_summary_earned">%1$s%2$s заработано.</string>
+    <string name="commission_earned">%1$s коммиссии заработано.</string>
+    <string name="commission_earned_lbl">Коммиссия:</string>
+    <string name="update_button">Редактировать</string>
+    <string name="clear_button">Очистить</string>
+    <string name="add_button">Добавить</string>
+    <string name="target_label">План по продажам:</string>
+    <string name="sales_made_label">Продано:</string>
+    <string name="commission_label">Коммиссия:</string>
+</resources>

@@ -1,12 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
 <ScrollView
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <androidx.cardview.widget.CardView android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android">
 <GridLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:id="@+id/add_shift_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="30dp">
@@ -16,7 +30,7 @@
         android:layout_height="wrap_content"
         android:text="@string/add_shift_shift_date"
         android:textColor="@android:color/black"
-        android:textSize="25sp"
+        android:textSize="20sp"
         android:layout_row="0"
         android:layout_column="0"
         android:id="@+id/shift_date_label"
@@ -30,7 +44,8 @@
         android:layout_row="0"
         android:focusable="false"
         android:layout_column="1"
-        android:textSize="25sp"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
         android:layout_gravity="end"
         android:paddingBottom="4dp"
         android:paddingTop="4dp"
@@ -44,7 +59,7 @@
         android:layout_row="1"
         android:layout_column="0"
         android:textColor="@android:color/black"
-        android:textSize="25sp"
+        android:textSize="20sp"
         android:id="@+id/start_time_label"
         android:paddingBottom="4dp"
         android:paddingTop="4dp"/>
@@ -54,7 +69,8 @@
         android:id="@+id/start_time"
         android:layout_row="1"
         android:layout_column="1"
-        android:textSize="25sp"
+        android:textSize="20sp"
+        android:textColor="@android:color/black"
         android:layout_gravity="end"
         android:focusable="false"
         android:paddingBottom="4dp"
@@ -64,7 +80,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/end_time_label"
-        android:textSize="25sp"
+        android:textSize="20sp"
         android:layout_row="2"
         android:textColor="@android:color/black"
         android:layout_column="0"
@@ -75,9 +91,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/end_time"
-        android:textSize="25sp"
+        android:textSize="20sp"
         android:layout_row="2"
         android:layout_column="1"
+        android:textColor="@android:color/black"
         android:layout_gravity="end"
         android:focusable="false"
         android:paddingBottom="4dp"
@@ -90,11 +107,9 @@
         android:layout_row="3"
         android:layout_column="0"
         android:textColor="@android:color/black"
-        android:textSize="25sp"
+        android:textSize="20sp"
         android:layout_marginTop="12dp"
-        android:layout_columnSpan="2"
-        android:id="@+id/comments_label"
-        />
+        android:layout_columnSpan="2" />
 
     <TextView
         android:id="@+id/comments"
@@ -103,16 +118,16 @@
         android:layout_height="wrap_content"
         android:layout_row="4"
         android:layout_column="0"
+        android:textColor="@android:color/black"
         android:textSize="15sp"
         android:layout_marginTop="12dp"
-        android:minLines="8"
+        android:minLines="4"
         android:layout_columnSpan="2"
         android:ems="10"
         android:gravity="start|top" />
 
 
     <TextView
-        android:id="@+id/hours_worked_label"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:layout_row="5"
@@ -121,7 +136,7 @@
         android:paddingTop="4dp"
         android:text="@string/hours_worked_label"
         android:textColor="@android:color/black"
-        android:textSize="25sp"
+        android:textSize="20sp"
         />
 
     <TextView
@@ -129,15 +144,15 @@
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:layout_row="5"
+        android:textColor="@android:color/black"
         android:layout_column="1"
         android:paddingBottom="4dp"
         android:paddingTop="4dp"
         android:layout_gravity="end"
-        android:textSize="25sp"
+        android:textSize="20sp"
         />
 
     <TextView
-        android:id="@+id/gross_pay_label"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:layout_row="6"
@@ -146,7 +161,7 @@
         android:paddingBottom="4dp"
         android:paddingTop="4dp"
         android:text="@string/gross_pay_label"
-        android:textSize="25sp"
+        android:textSize="20sp"
         />
 
     <TextView
@@ -155,17 +170,45 @@
         android:layout_width="wrap_content"
         android:layout_row="6"
         android:layout_column="1"
+        android:textColor="@android:color/black"
         android:paddingBottom="4dp"
         android:paddingTop="4dp"
         android:layout_gravity="end"
-        android:textSize="25sp"
+        android:textSize="20sp"
         />
+
+    <TextView
+        android:id="@+id/commission_earned_label"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_row="7"
+        android:layout_column="0"
+        android:textColor="@android:color/black"
+        android:paddingBottom="4dp"
+        android:paddingTop="4dp"
+        android:text="@string/commission_earned_lbl"
+        android:textSize="20sp"
+        />
+
+    <TextView
+        android:id="@+id/commission_earned"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_row="7"
+        android:layout_column="1"
+        android:textColor="@android:color/black"
+        android:paddingBottom="4dp"
+        android:paddingTop="4dp"
+        android:layout_gravity="end"
+        android:textSize="20sp"
+        />
+
 
     <Button
         android:layout_height="wrap_content"
         android:layout_width="130dp"
         android:layout_marginTop="25dp"
-        android:layout_row="7"
+        android:layout_row="8"
         android:layout_gravity="left"
         android:layout_column="0"
         android:id="@+id/edit_shift"
@@ -177,13 +220,14 @@
         android:layout_width="130dp"
         android:layout_marginTop="25dp"
         android:layout_height="wrap_content"
-        android:layout_row="7"
+        android:layout_row="8"
         android:layout_gravity="right"
-        android:id="@+id/clear_all"
+        android:id="@+id/delete_shift"
         android:background="@color/clearAll"
         android:textColor="@color/TextWhite"
         android:layout_column="1"
-        android:text="@string/delete_shift_button"/>
+        android:text="@string/delete_shift_button"
+       />
 
 
 
@@ -194,4 +238,10 @@
 </GridLayout>
 
 
+</androidx.cardview.widget.CardView>
+
 </ScrollView>
+
+
+
+</RelativeLayout>
